@@ -1,0 +1,30 @@
+<div class="main">
+  <div class="logo"></div>
+
+  <h1>ToDo</h1>
+
+  <form (submit)="addTodo()">
+    <input type="text" name="task" [(ngModel)]="task" placeholder="enter task">
+    <input type="submit" value="Add"> 
+
+
+  </form>
+
+   <div class="tasks">
+    <h2>Tasks</h2>
+    <p *ngIf="todos.length === 0">No tasks available</p>
+
+   
+  <div class="task" *ngFor="let todo of todos; let i = index">
+    <input type="checkbox" name="" id="" [checked]="todo.status !== 'waiting'">
+    
+    {{ todo.task }}
+    <button class="delete"  (click)="deleteTodo(i)"><i class="fa fa-trash"></i></button>
+  </div>
+
+
+    
+   </div>
+  
+</div>
+
